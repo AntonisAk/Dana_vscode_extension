@@ -38,9 +38,21 @@ This extension provides syntax highlighting and language support for the Dana pr
 
 ## Installation
 
-1. Copy the extension folder to your VS Code extensions directory
-2. Reload VS Code
-3. Open any `.dana` file to see syntax highlighting
+1. **Install vsce (VS Code Extension Manager):**
+   ```bash
+   npm install -g vsce
+   ```
+
+2. **Package the extension:**
+   ```bash
+   cd Dana_vscode_extension
+   vsce package
+   ```
+
+3. **Install the .vsix file:**
+   ```bash
+   code --install-extension dana-language-support-1.0.0.vsix
+   ```
 
 ## Usage
 
