@@ -6,7 +6,7 @@
 
 1. **Install dependencies:**
    ```bash
-   cd dana-vscode-extension
+   cd Dana_vscode_extension
    npm install
    ```
 
@@ -17,7 +17,7 @@
 
 3. **Install the extension locally:**
    - Press `F5` in VS Code to open a new Extension Development Host window
-   - OR copy the entire `dana-vscode-extension` folder to:
+   - OR copy the entire `Dana_vscode_extension` folder to:
      - **Windows**: `%USERPROFILE%\.vscode\extensions\`
      - **macOS**: `~/.vscode/extensions/`
      - **Linux**: `~/.vscode/extensions/`
@@ -33,7 +33,7 @@
 
 2. **Package the extension:**
    ```bash
-   cd dana-vscode-extension
+   cd Dana_vscode_extension
    vsce package
    ```
 
