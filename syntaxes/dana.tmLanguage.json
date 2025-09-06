@@ -1,0 +1,295 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Dana",
+    "scopeName": "source.dana",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#characters"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#function-definitions"
+        },
+        {
+            "include": "#function-calls"
+        },
+        {
+            "include": "#array-types"
+        },
+        {
+            "include": "#return-statements"
+        },
+        {
+            "include": "#array-access"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#identifiers"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.number-sign.dana",
+                    "match": "#.*$"
+                },
+                {
+                    "name": "comment.block.dana",
+                    "begin": "\\(\\*",
+                    "end": "\\*\\)",
+                    "patterns": [
+                        {
+                            "include": "#comments"
+                        }
+                    ]
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.dana",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.dana",
+                            "match": "\\\\(n|t|r|0|\\\\|'|\"|x[0-9a-fA-F][0-9a-fA-F])"
+                        }
+                    ]
+                }
+            ]
+        },
+        "characters": {
+            "patterns": [
+                {
+                    "name": "string.quoted.single.dana",
+                    "match": "'([^'\"\\\\]|\\\\(n|t|r|0|\\\\|'|\"|x[0-9a-fA-F][0-9a-fA-F]))'",
+                    "captures": {
+                        "1": {
+                            "name": "constant.character.escape.dana"
+                        }
+                    }
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.negative.dana",
+                    "match": "-\\b\\d+\\b"
+                },
+                {
+                    "name": "constant.numeric.dana",
+                    "match": "\\b\\d+\\b"
+                }
+            ]
+        },
+        "function-definitions": {
+            "patterns": [
+                {
+                    "name": "meta.function.definition.dana",
+                    "match": "\\b(def)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\s+(is)\\s+([a-zA-Z][a-zA-Z0-9_]*(?:\\[[0-9]*\\])*)",
+                    "captures": {
+                        "1": {
+                            "name": "storage.modifier.dana"
+                        },
+                        "2": {
+                            "name": "entity.name.function.dana"
+                        },
+                        "3": {
+                            "name": "keyword.operator.logical.dana"
+                        },
+                        "4": {
+                            "name": "storage.type.dana"
+                        }
+                    }
+                },
+                {
+                    "name": "meta.function.declaration.dana",
+                    "match": "\\b(decl)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\s+(is)\\s+([a-zA-Z][a-zA-Z0-9_]*(?:\\[[0-9]*\\])*)",
+                    "captures": {
+                        "1": {
+                            "name": "storage.modifier.dana"
+                        },
+                        "2": {
+                            "name": "entity.name.function.dana"
+                        },
+                        "3": {
+                            "name": "keyword.operator.logical.dana"
+                        },
+                        "4": {
+                            "name": "storage.type.dana"
+                        }
+                    }
+                }
+            ]
+        },
+        "function-calls": {
+            "patterns": [
+                {
+                    "name": "meta.function.call.dana",
+                    "match": "\\b([a-zA-Z][a-zA-Z0-9_]*)\\s*\\(",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.function.call.dana"
+                        }
+                    }
+                }
+            ]
+        },
+        "array-types": {
+            "patterns": [
+                {
+                    "name": "storage.type.array.dana",
+                    "match": "\\b(int|byte|ref)(\\[[0-9]*\\])+",
+                    "captures": {
+                        "1": {
+                            "name": "storage.type.dana"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.array.dana"
+                        }
+                    }
+                }
+            ]
+        },
+        "return-statements": {
+            "patterns": [
+                {
+                    "name": "meta.return.dana",
+                    "match": "\\b(return)\\s*(:)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.control.flow.dana"
+                        },
+                        "2": {
+                            "name": "punctuation.separator.return.dana"
+                        }
+                    }
+                }
+            ]
+        },
+        "array-access": {
+            "patterns": [
+                {
+                    "name": "meta.array.access.dana",
+                    "match": "\\b([a-zA-Z][a-zA-Z0-9_]*)(\\[[^\\]]*\\])+",
+                    "captures": {
+                        "1": {
+                            "name": "variable.other.dana"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.array.access.dana"
+                        }
+                    }
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.dana",
+                    "match": "\\b(true|false)\\b"
+                },
+                {
+                    "name": "keyword.control.conditional.dana",
+                    "match": "\\b(if|elif|else)\\b"
+                },
+                {
+                    "name": "keyword.control.loop.dana",
+                    "match": "\\b(loop)\\b"
+                },
+                {
+                    "name": "keyword.control.flow.dana",
+                    "match": "\\b(begin|end|skip|exit|return|break|continue)\\b"
+                },
+                {
+                    "name": "storage.type.dana",
+                    "match": "\\b(int|byte|ref)\\b"
+                },
+                {
+                    "name": "storage.modifier.dana",
+                    "match": "\\b(def|decl|var)\\b"
+                },
+                {
+                    "name": "keyword.operator.logical.dana",
+                    "match": "\\b(and|not|or|as|is)\\b"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.assignment.dana",
+                    "match": ":="
+                },
+                {
+                    "name": "keyword.operator.comparison.dana",
+                    "match": "(>=|<=|<>|[=<>])"
+                },
+                {
+                    "name": "keyword.operator.arithmetic.dana",
+                    "match": "[+\\-*/%]"
+                },
+                {
+                    "name": "keyword.operator.logical.dana",
+                    "match": "[!&|]"
+                },
+                {
+                    "name": "punctuation.separator.dana",
+                    "match": "[,\\[\\]()]"
+                },
+                {
+                    "name": "punctuation.separator.parameter.dana",
+                    "match": "\\b(as)\\s+(int|byte|ref)(?:\\[[0-9]*\\])*\\b",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.operator.logical.dana"
+                        },
+                        "2": {
+                            "name": "storage.type.dana"
+                        }
+                    }
+                },
+                {
+                    "name": "punctuation.separator.colon.dana",
+                    "match": "(?<!:):(?!=)(?!\\s*\\w)"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.builtin.dana",
+                    "match": "\\b(writeInteger|writeByte|writeChar|writeString|readInteger|readByte|readChar|readString|extend|shrink|strlen|strcmp|strcpy|strcat)\\b"
+                }
+            ]
+        },
+        "identifiers": {
+            "patterns": [
+                {
+                    "name": "variable.other.dana",
+                    "match": "\\b[a-zA-Z][a-zA-Z0-9_]*\\b"
+                }
+            ]
+        }
+    }
+}

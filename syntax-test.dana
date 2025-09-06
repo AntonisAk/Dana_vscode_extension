@@ -1,0 +1,15 @@
+# Test file for Dana syntax highlighting issues
+
+(* This is a multi-line comment
+   that should be highlighted
+   across multiple lines *)
+
+def test
+    begin
+        skip    # This skip keyword should be highlighted
+        (* Another block comment *)
+    end
+
+(* Nested comment test
+   (* This is nested *)
+   End of outer comment *)

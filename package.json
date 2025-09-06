@@ -1,0 +1,51 @@
+{
+    "name": "dana-language-support",
+    "displayName": "Dana Language Support",
+    "description": "Syntax highlighting and language support for Dana programming language",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "publisher": "dana-lang",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AntonisAk/Dana_vscode_extension"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "dana",
+                "aliases": [
+                    "Dana",
+                    "dana"
+                ],
+                "extensions": [
+                    ".dana"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "dana",
+                "scopeName": "source.dana",
+                "path": "./syntaxes/dana.tmLanguage.json"
+            }
+        ]
+    },
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "16.x",
+        "@types/vscode": "^1.74.0",
+        "typescript": "^4.9.4"
+    }
+}
