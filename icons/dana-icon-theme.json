@@ -1,0 +1,10 @@
+{
+    "iconDefinitions": {
+        "dana-file": {
+            "iconPath": "./icons/dana-file.svg"
+        }
+    },
+    "fileExtensions": {
+        "dana": "dana-file"
+    }
+}

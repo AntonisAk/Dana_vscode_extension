@@ -1,0 +1,70 @@
+{
+    "Function Definition": {
+        "prefix": "def",
+        "body": [
+            "def ${1:functionName}${2: is ${3:returnType}}: ${4:params}",
+            "\tbegin",
+            "\t\t$0",
+            "\tend"
+        ],
+        "description": "Create a Dana function definition"
+    },
+    "Variable Declaration": {
+        "prefix": "var",
+        "body": [
+            "var ${1:name} is ${2:int}"
+        ],
+        "description": "Declare a variable"
+    },
+    "If Statement": {
+        "prefix": "if",
+        "body": [
+            "if ${1:condition}:",
+            "\t$0"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ifelse",
+        "body": [
+            "if ${1:condition}:",
+            "\t${2:// code}",
+            "else:",
+            "\t${3:// code}"
+        ],
+        "description": "If-else statement"
+    },
+    "Loop": {
+        "prefix": "loop",
+        "body": [
+            "loop:",
+            "\t${1:// code}",
+            "\tif ${2:condition}: break"
+        ],
+        "description": "Loop with break condition"
+    },
+    "Main Function": {
+        "prefix": "main",
+        "body": [
+            "def main",
+            "\tbegin",
+            "\t\t$0",
+            "\tend"
+        ],
+        "description": "Main function template"
+    },
+    "Write String": {
+        "prefix": "ws",
+        "body": [
+            "writeString: \"${1:text}\""
+        ],
+        "description": "Write string output"
+    },
+    "Write Integer": {
+        "prefix": "wi",
+        "body": [
+            "writeInteger: ${1:value}"
+        ],
+        "description": "Write integer output"
+    }
+}

@@ -35,6 +35,64 @@
                 "scopeName": "source.dana",
                 "path": "./syntaxes/dana.tmLanguage.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "dana",
+                "path": "./snippets/dana.json"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Dana Language Support",
+            "properties": {
+                "dana.diagnostics.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable/disable diagnostic features"
+                },
+                "dana.diagnostics.maxProblems": {
+                    "type": "number",
+                    "default": 100,
+                    "description": "Maximum number of problems to report per file"
+                },
+                "dana.completion.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable/disable code completion"
+                },
+                "dana.hover.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable/disable hover information"
+                }
+            }
+        },
+        "iconThemes": [
+            {
+                "id": "dana-icons",
+                "label": "Dana File Icons",
+                "path": "./icons/dana-icon-theme.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "dana.insertMainFunction",
+                "title": "Insert Main Function",
+                "category": "Dana"
+            },
+            {
+                "command": "dana.formatDocument",
+                "title": "Format Dana Document",
+                "category": "Dana"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "dana.insertMainFunction",
+                "key": "ctrl+alt+m",
+                "when": "editorTextFocus && resourceExtname == '.dana'"
+            }
         ]
     },
     "activationEvents": [],
@@ -48,5 +106,10 @@
         "@types/node": "20.x",
         "@types/vscode": "^1.85.0",
         "typescript": "^5.3.0"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^9.0.1",
+        "vscode-languageserver": "^9.0.1",
+        "vscode-languageserver-textdocument": "^1.0.12"
     }
 }
